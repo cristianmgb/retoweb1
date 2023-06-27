@@ -1,7 +1,8 @@
-package com.desaextremo.retouno.service;
+package com.cristiangonzalez.retouno.service;
 
-import com.desaextremo.retouno.model.User;
-import com.desaextremo.retouno.repository.UserRepository;
+import com.cristiangonzalez.retouno.repository.UserRepository;
+import com.cristiangonzalez.retouno.model.User;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,9 @@ public class UserService {
         return userRepository.getUser(id);
     }
 
-    public User registrar(User user) {
+    public User save(User user) {
         if (user.getId() == null) {
-            if (existeEmail(user.getEmail()) == false) {
+            if (!validateteEmail(user.getEmail())) {
                 return userRepository.save(user);
             } else {
                 return user;
@@ -37,12 +38,12 @@ public class UserService {
         }
     }
 
-    public boolean existeEmail(String email) {
-        return userRepository.existeEmail(email);
+    public boolean validateteEmail(String email) {
+        return userRepository.validateEmail(email);
     }
 
-    public User autenticarUsuario(String email, String password) {
-        Optional<User> usuario = userRepository.autenticarUsuario(email.trim(), password.trim());
+    public User authUser(String email, String password) {
+        Optional<User> usuario = userRepository.authUser(email.trim(), password.trim());
         System.out.println(email);
         System.out.println(password);
         if (usuario.isEmpty()) {

@@ -1,7 +1,7 @@
-package com.desaextremo.retouno.repository;
+package com.cristiangonzalez.retouno.repository;
 
-import com.desaextremo.retouno.repository.crud.UserCrudRepository;
-import com.desaextremo.retouno.model.User;
+import com.cristiangonzalez.retouno.repository.crud.UserCrudRepository;
+import com.cristiangonzalez.retouno.model.User;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,13 +30,13 @@ public class UserRepository {
         return userCrudRepository.save(user);
     }
 
-    public boolean existeEmail(String email) {
+    public boolean validateEmail(String email) {
         Optional<User> usuario = userCrudRepository.findByEmail(email);
 
         return !usuario.isEmpty();
     }
 
-    public Optional<User> autenticarUsuario(String email, String password) {
+    public Optional<User> authUser(String email, String password) {
         return userCrudRepository.findByEmailAndPassword(email, password);
     }
 }

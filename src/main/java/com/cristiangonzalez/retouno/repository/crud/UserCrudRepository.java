@@ -1,6 +1,6 @@
-package com.desaextremo.retouno.repository.crud;
+package com.cristiangonzalez.retouno.repository.crud;
 
-import com.desaextremo.retouno.model.User;
+import com.cristiangonzalez.retouno.model.User;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;

@@ -1,4 +1,4 @@
-package com.desaextremo.retouno.model;
+package com.cristiangonzalez.retouno.model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
